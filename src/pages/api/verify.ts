@@ -1,9 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { getDpStudioHttpOption } from './utils';
-import config from './config/config';
-import { AuthError } from './error/errors';
-import axios from 'axios';
+import type { NextApiRequest, NextApiResponse } from "next";
+// import { getDpStudioHttpOption } from "./utils";
+// import config from "./config/config";
+import { AuthError } from "./error/errors";
+import axios from "axios";
 
 type Data = {
   name: string;
@@ -13,13 +13,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-    try {
-        const httpOptions = await getDpStudioHttpOption();
-        const reqBody = {'iagCode' : req.query.code, 'redirectSource' :req.query.state};
-        let response = await axios.post(config.dpStudioApiEndPoint + '/auth/verify', reqBody, httpOptions);
-        res.status(200).json(response.data);
-    }
-    catch (err) {
-        next(new AuthError(403, err.message));
-    }
+  try {
+    let response = await axios.get("https://dummyjson.com/products/1");
+    console.log(response.data);
+    return res.status(200).send(response.data);
+  } catch (err) {
+    new AuthError(403, err.message);
+  }
 }
