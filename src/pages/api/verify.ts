@@ -18,6 +18,6 @@ export default async function handler(
     console.log(response.data);
     return res.status(200).send(response.data);
   } catch (err) {
-    new AuthError(403, err.message);
+    new AuthError(403, err);
   }
 }

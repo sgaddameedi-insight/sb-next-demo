@@ -85,9 +85,9 @@ export default function Home() {
             priority
           />
           <div className={styles.thirteen}>
-            {/* https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-82732.jpg */}
+            {/* */}
             <Image
-              src="/thirteen.svg"
+              src="https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-82732.jpg"
               alt="13"
               width={40}
               height={20}
